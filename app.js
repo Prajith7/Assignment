@@ -1,5 +1,7 @@
+let objData={};
 let addTask = document.getElementById("submitbtn")
 let titlevalue = document.getElementById("text-box")
+let descriptionVal = document.getElementById("description")
 console.log(titlevalue)
 let displayTask = document.getElementById("container-2")
 console.log(addTask)
@@ -13,8 +15,15 @@ let titlediv1 = document.createElement("div")
 let titlediv2 = document.createElement("div")
 let showTitle=document.createElement("p")
 addTask.addEventListener("click",()=>{
-  
-   if(titlevalue.value){
+    if(objData[titlevalue.value]===undefined)
+        objData[titlevalue.value]={title:titlevalue.value, notes:descriptionVal.value}
+        console.log(objData)
+        showTask();
+
+        function showTask(){
+            
+        }
+   if(titlevalue.value && descriptionVal.value){
     
     showTitle.innerText = titlevalue.value;
     titlediv2.appendChild(titlediv1)
@@ -39,6 +48,7 @@ addTask.addEventListener("click",()=>{
     //     td3.appendChild(dltBtn)
     //     table.appendChild(rows)
     titlevalue.value=" " ;
+    descriptionVal.value=" ";
     editBtn.addEventListener("click",()=>{
 
     })
